@@ -1,0 +1,119 @@
+<video
+  *ngIf="!endVideo"
+  [width]="widthContainer"
+  [height]="heightContainer"
+  #video
+  [poster]="getImagePoster(didYouKnow?.question_and_answer?.category)"
+  [id]="'video'"
+  [style.height]="heightContainer + 'px !important'"
+  style="border-radius: 10px"
+>
+  <source [type]="'video/mp4'" />
+</video>
+
+<div
+  [style.width]="widthContainer + 'px'"
+  [style.height]="heightContainer + 'px'"
+  *ngIf="endVideo"
+  class="col-span-2 container-trivia relative"
+  [style.background]="getImage(didYouKnow?.question_and_answer?.category)"
+>
+  <div
+    class="relative w-full h-full rounded-2xl"
+    style="
+      width: 90%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    "
+  >
+    <div
+      [style.background]="
+        didYouKnow?.question_and_answer?.category=== 'health' ? '#619492' : '#99CC33'
+      "
+      style="border-radius: 1rem"
+    >
+      <div
+        [class]="
+          didYouKnow?.question_and_answer?.category === 'health'
+            ? ' grid grid-cols-7'
+            : ' grid grid-cols-7'
+        "
+        [style.height]="getTopHeight()"
+      >
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: end;
+            padding: 10px;
+          "
+          class="col-span-3 bg-white"
+        >
+          <p
+            [class]="
+              didYouKnow?.question_and_answer?.category === 'health'
+                ? '  font-black font-inter  xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'
+                : '  font-black font-inter xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'
+            "
+            [style.color]="
+              didYouKnow?.question_and_answer?.category === 'health' ? '#056766' : '#619492'
+            "
+            [style.line-height]="0.9"
+          >
+            ¿Sabías qué?
+          </p>
+        </div>
+
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            text-align: end;
+            padding: 10px;
+          "
+          [class]="
+            didYouKnow?.question_and_answer?.category === 'health' ? ' col-span-4' : '  col-span-4'
+          "
+        >
+          <p
+            [class]="
+              didYouKnow?.question_and_answer?.category === 'health'
+                ? '   font-black font-inter   uppercase xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'
+                : '  font-black font-inter   uppercase xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl'
+            "
+            [style.background]="
+              didYouKnow?.question_and_answer?.category === 'health' ? '#619492' : '#99CC33'
+            "
+            [style.color]="
+              didYouKnow?.question_and_answer?.category === 'health' ? '#FFF' : '#056766'
+            "
+            [style.line-height]="0.8"
+          >
+            {{
+              didYouKnow?.question_and_answer?.category === "health" ? "#SALUD" : "/MEDIO AMBIENTE"
+            }}
+          </p>
+        </div>
+      </div>
+      <div
+        [class]="
+          didYouKnow?.question_and_answer?.category === 'health' ? 'py-8 px-8  ' : 'py-8 px-8  '
+        "
+        [style.background]="
+          didYouKnow?.question_and_answer?.category === 'health' ? '#76B1B0' : '#79A02B'
+        "
+        [style.height]="getBottomHeight()"
+      >
+        <p
+          class="font-inter text-white xs:text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl"
+        >
+          {{ didYouKnow?.question_and_answer?.text }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

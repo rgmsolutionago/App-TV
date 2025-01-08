@@ -1,0 +1,93 @@
+ .rectangleTime {
+     position: relative;
+   
+
+ }
+
+
+
+ .bg-subspecial-ok {
+     background-color: #8FAC2A;
+     border-radius: 50%;
+     margin-right: 10px;
+    
+     
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     width: 40px;
+     height: 40px;
+
+     
+ }
+
+ .bg-subspecial-error {
+     background-color: #C93333;
+     border-radius: 50%;
+     margin-right: 10px;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     width: 40px;
+     height: 40px;
+   
+
+ }
+
+ .container-question-ok {
+     display: flex;
+     justify-content: space-between;
+     background-color: #A0C51E;
+     min-height: 45px;
+     border-radius: 10px;
+     border: 1px solid white;
+     margin-bottom: 10px;
+     align-items: center;
+     padding: 5px;
+     font-size: 20px;
+ }
+
+ .container-question-error {
+     display: flex;
+     justify-content: space-between;
+     background-color: #FA3759;
+     min-height: 45px;
+     border-radius: 10px;
+     border: 1px solid white;
+     margin-bottom: 10px;
+     align-items: center;
+     padding: 5px;
+     font-size: 20px;
+     
+ }
+
+
+
+ .question-container {
+     padding: 2px 20px;
+     background-color: #6638B2;
+     margin-bottom: 15px;
+     border-radius: 10px;
+   
+    
+     display: flex;
+     align-items: center;
+     min-height: 109px;
+     font-weight: bold;
+     align-items: center;
+
+     h1{
+         margin-top: 0px;
+     }
+    }
+
+ .container-trivia {
+     background-image: url('../../../assets/fondo_animado.gif');
+     border-radius: 12px;
+ }
+
+ video {
+    border-radius: 1rem;
+    object-fit: fill;
+
+}

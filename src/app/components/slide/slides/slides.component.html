@@ -1,0 +1,26 @@
+<div
+  #container
+  style="border-radius: 10px"
+  class="flex justify-center items-center w-full h-full animation-fade"
+  *ngIf="
+    !dashboardService.updateChange && (appConfigService.reelIsReadyToGo | async ) && (appConfigService.endPreload | async)
+  "
+>
+  <slide-item
+    [DISPLAY]="DISPLAY"
+    [widthContainer]="container.offsetWidth"
+    [heightContainer]="container.offsetHeight"
+  ></slide-item>
+</div>
+
+<div
+  *ngIf="!(appConfigService.reelIsReadyToGo | async) || !(appConfigService.endPreload | async)"
+  #container
+  style="border-radius: 10px"
+  class="flex justify-center items-center w-full h-full animation-fade"
+>
+  <slide-loader
+    [widthContainer]="container.offsetWidth"
+    [heightContainer]="container.offsetHeight"
+  ></slide-loader>
+</div>

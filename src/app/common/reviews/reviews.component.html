@@ -1,0 +1,78 @@
+<video
+  *ngIf="!endVideo"
+  [width]="widthContainer"
+  [height]="heightContainer"
+  #video
+  [poster]="'./assets/module/review/poster.png'"
+  [id]="'video'"
+  [style.height]="heightContainer + 'px !important'"
+  style="border-radius: 10px"
+>
+  <source [type]="'video/mp4'" />
+</video>
+
+<div
+  [style.width]="widthContainer + 'px'"
+  [style.height]="heightContainer + 'px'"
+  *ngIf="endVideo"
+  class="container-movie relative bg-white"
+>
+  <div
+    [style.border-radius]="'10px 10px 0px 0px'"
+    [style.height]="(heightContainer * 80) / 100 + 'px'"
+    class="p-2 w-full"
+  >
+    <ion-img
+      style="
+        position: absolute;
+        right: 23px;
+        height: 50px;
+        width: 50px;
+        top: 14px;
+      "
+      src="./assets/module/review/google.png"
+    ></ion-img>
+    <div class="flex flex-col items-start justify-start p-4 mt-10">
+      <div class="flex flex-row mt-2">
+        <div class="p-4">
+          <ion-text class="text-9xl" style="color: #d4d4d4">❝</ion-text>
+        </div>
+        <div class="p-4">
+          <ion-text class="font-bold text-2xl">{{ review.name }}</ion-text>
+          <ion-text
+            class="text-xl line-clamp-3 italic"
+            style="line-height: 33px"
+            >{{ truncate() }}</ion-text
+          >
+          <div class="flex mt-2">
+            <star-rating
+              [size]="'large'"
+              [starType]="'svg'"
+              [rating]="review.rating"
+            ></star-rating>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    [style.height]="(heightContainer * 20) / 100 + 'px'"
+    class="bg-slate-100 p-2 px-6 w-full flex flex-row justify-between items-center center rounded-b-2xl"
+  >
+    <div class="flex flex-col">
+      <star-rating
+        [starType]="'svg'"
+        [rating]="reviewService.rating"
+      ></star-rating>
+      <div style="margin-left: 8px;">{{ reviewService.total }} Opiniones</div>
+    </div>
+
+    <div>
+      <ion-img
+        style="height: 50px; width: 50px"
+        [src]="'data:image/png;base64,' + reviewService.qr"
+      ></ion-img>
+    </div>
+  </div>
+</div>

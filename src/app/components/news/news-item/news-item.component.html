@@ -1,0 +1,64 @@
+<div *ngIf="DISPLAY === 0 || DISPLAY === 1" class="w-full h-full py-4">
+  <div class="flex justify-between">
+    <!-- logo -->
+    <dobled-logo></dobled-logo>
+    <!-- heading -->
+    <h1
+      class="mt-2 font-inter font-bold xs:text-1xl sm:text-1xl md:text-1xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl"
+      [style.color]="appConfigService.theme.primaryColor"
+    >
+      Noticias
+    </h1>
+  </div>
+  <!-- text -->
+  <div class="flex justify-between gap-5 mt-5">
+    <div>
+      <p
+        class="xs:text-1xl sm:text-1xl md:text-1xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-medium font-inter text-left"
+        [style.color]="appConfigService.theme.primaryColor"
+      >
+        {{ item.title }}
+      </p>
+    </div>
+  </div>
+  <!-- logo -->
+  <div class="mt-4 flex justify-start">
+    <ion-img
+      *ngIf="item?.newspaper_name != '2' && getImage()"
+      [src]="getImage()"
+      class="image"
+    ></ion-img>
+  </div>
+</div>
+
+<div *ngIf="DISPLAY === 2 || DISPLAY === 3 ||DISPLAY === 4" class="w-full h-full py-4">
+  <div class="flex justify-between center">
+    <!-- heading -->
+    <h1
+      class="mt-2 font-inter font-bold xs:text-1xl sm:text-1xl md:text-1xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl"
+      [style.color]="appConfigService.theme.primaryColor"
+    >
+      Noticias
+    </h1>
+
+    <!-- logo -->
+    <div class="mt-4 flex justify-end">
+      <ion-img
+        *ngIf="item?.newspaper_name != '2'"
+        [src]="getImage()"
+        class="image"
+      ></ion-img>
+    </div>
+  </div>
+  <!-- text -->
+  <div class="flex justify-between gap-5 mt-5">
+    <div>
+      <p
+        class="xs:text-1xl sm:text-1xl md:text-1xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-medium font-inter text-left"
+        [style.color]="appConfigService.theme.primaryColor"
+      >
+        {{ item.title }}
+      </p>
+    </div>
+  </div>
+</div>

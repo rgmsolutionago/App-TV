@@ -1,0 +1,73 @@
+<video
+  *ngIf="!endVideo"
+  [width]="widthContainer"
+  [height]="heightContainer"
+  #video
+  [poster]="'./assets/module/movie/cine_tv_pop.gif'"
+  [id]="'video'"
+  [style.height]="heightContainer + 'px !important'"
+  style="border-radius: 10px"
+>
+  <source [type]="'video/mp4'" />
+</video>
+
+<div
+  [style.border-radius]="10 + 'px'"
+  [style.height]="heightContainer + 'px'"
+  [style.width]="widthContainer + 'px'"
+  *ngIf="endVideo"
+  class="col-span-2 container-movie relative"
+  [style.background]="getImage()"
+>
+  <div
+    [style.border-radius]="10 + 'px'"
+    [style.width]="widthContainer/100*80 + 'px'"
+    [style.height]="heightContainer/100*80 + 'px'"
+    class="grid grid-cols-2 bg-pink-600 p-2"
+  >
+    <div class="flex flex-col items-start px-3 justify-between">
+      <div class="flex flex-col">
+        <div class="flex flex-row center justify-center items-center">
+          <ion-img
+            [src]="'./assets/module/movie/pop.png'"
+            class="w-6 h-6 mr-2"
+          ></ion-img>
+          <ion-text class="text-sm text-white font-bold">CINE</ion-text>
+        </div>
+        <div class="mt-4">
+          <ion-text
+            class="text-2xl text-white font-bold"
+            style="line-height: 0"
+            >{{ movie.name }}</ion-text
+          >
+        </div>
+        <div class="mt-1">
+          <ion-text class="text-sm text-white leading-none">{{
+            movie.overview
+          }}</ion-text>
+        </div>
+      </div>
+      <div
+        class="flex flex-row center justify-between items-center mt-1 w-full"
+      >
+        <div class="mt-1 border-b-8 border-white">
+          <ion-text class="text-sm text-white font-bold">{{
+            movie.platform
+          }}</ion-text>
+        </div>
+
+        <div
+          *ngIf="movie"
+          class="donut bg-pink-600"
+          [style]="getStyle(movie.vote)"
+        >
+          <div class="hole flex items-center center justify-center">
+            <ion-text class="text-white font-bold">{{ movie.vote }}</ion-text>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div [style]="getStyleBG()"></div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+{
+  "data": {
+      "uuid": "6f13b8ad-5b77-11ef-a98a-12165f527b23",
+      "name": "Food Kiosk",
+      "country": "UY",
+      "state": "Montevideo",
+      "language": "es",
+      "key": "zDP5Fy",
+      "modules": {
+          "trivia": {
+              "enable": true,
+              "repeat": 3
+          },
+          "did_you_know": {
+              "enable": true,
+              "repeat": 3
+          },
+          "a_day_like_today": {
+              "enable": true,
+              "repeat": 3
+          },
+          "movie": {
+              "enable": false,
+              "repeat": 3
+          },
+          "show": {
+              "enable": false,
+              "repeat": 3
+          },
+          "review": {
+              "enable": false,
+              "repeat": 3
+          }
+      },
+      "trivia": true,
+      "did_you_know": true,
+      "a_day_like_today": true,
+      "news": false,
+      "football": false,
+      "basketball": false,
+      "exchanges": false,
+      "callers": false,
+      "callers_linked": false,
+      "color": "#ffffff",
+      "review_id": "",
+      "max_connections": 3,
+      "logo": "",
+      "audio": false,
+      "is_active": true,
+      "instagram": "las2reinascolonia",
+      "instagram_enabled": true,
+      "instagram_max_displayed": 5,
+      "background_color": "#ffffff",
+      "background_card": "",
+      "primary_color": "#b63a3a",
+      "secondary_color": "#c50707",
+      "third_color": "#924f4f",
+      "notification_color_text": "#b36565",
+      "color_logo": true,
+      "slider_color_active": "",
+      "slider_color_disabled": "",
+      "is_master": true,
+      "master_emission_id": 0,
+      "display_options": [
+          {
+              "machine_key": "dd_b145e039b2065d3c",
+              "display": 1,
+              "position": {
+                  "margin-top": 20,
+                  "margin-left": 20,
+                  "margin-right": 20,
+                  "inner-padding": 5,
+                  "margin-bottom": 20
+              }
+          },
+          {
+              "machine_key": "dd_063674daca96d5a0",
+              "display": 0,
+              "position": {
+                  "margin-top": 20,
+                  "margin-left": 20,
+                  "margin-right": 20,
+                  "inner-padding": 5,
+                  "margin-bottom": 20
+              }
+          },
+          {
+              "machine_key": "dd_922e9102ebd93054",
+              "display": 0,
+              "position": {
+                  "margin-top": 20,
+                  "margin-left": 20,
+                  "margin-right": 20,
+                  "inner-padding": 5,
+                  "margin-bottom": 20
+              }
+          }
+      ]
+  }
+}

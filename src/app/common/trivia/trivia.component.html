@@ -1,0 +1,138 @@
+<video
+  *ngIf="!showQuestion"
+  [width]="widthContainer"
+  [height]="heightContainer"
+  #video
+  [poster]="'./assets/module/trivia/fondo_animado.gif'"
+  [id]="'video'"
+  [style.height]="heightContainer + 'px !important'"
+  style="border-radius: 10px"
+>
+  <source [type]="'video/mp4'" />
+</video>
+
+<div
+  [style.width]="widthContainer + 'px'"
+  [style.height]="heightContainer + 'px'"
+  *ngIf="showQuestion"
+  class="w-screen h-screen flex justify-center container-trivia "
+>
+  <div
+    class="relative flex items-center justify-center rounded-2xl p-6"
+    style="overflow: hidden !important"
+  >
+    <!-- main -->
+    <div class="" style="z-index: 100000000000000000000000 !important">
+      <div class="relative w-full bg-special z-50">
+        <div
+          class="main-div relative flex justify-between question-container gap-10"
+        >
+          <h1
+            class="relative font-inter text-white font-bold"
+            style="z-index: 1000000000000 !important"
+          >
+            {{ triviaInfo?.question_and_answer?.question }}
+          </h1>
+          <div
+            class="relative flex flex-col !w-[60px] !h-[60px] text-center items-center rounded-full bg-white p-2"
+          >
+            <p>{{ second > 0 ? second : 0 }}<br /><span class="text-sm">seg</span></p>
+          </div>
+        </div>
+      </div>
+      <!-- grids -->
+
+      <div *ngIf="led">
+        <!-- 1 -->
+        <div
+          *ngFor="
+            let item of triviaInfo?.question_and_answer?.options;
+            let i = index
+          "
+          [class]="
+            item.is_correct && showCorrectAnswer
+              ? 'container-question-ok'
+              : 'container-question-error'
+          "
+        >
+          <div style="display: flex; align-items: center">
+            <div
+              *ngIf="
+                triviaInfo?.question_and_answer?.type === 'multiple_choice'
+              "
+              [class]="
+                item.is_correct && showCorrectAnswer
+                  ? 'bg-subspecial-ok text-brand-white font-bold-ok'
+                  : 'bg-subspecial-error text-brand-white font-bold'
+              "
+            >
+              {{ i + 1 }}
+            </div>
+            <div>
+              <h2 class="col-span-5 font-inter text-brand-white font-bold">
+                {{ item.text }}
+              </h2>
+            </div>
+          </div>
+          <svg
+            style="width: 35px; height: 35px"
+            *ngIf="item.is_correct && showCorrectAnswer"
+            width="53"
+            height="53"
+            viewBox="0 0 53 53"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M13.171 28.5821L20.668 36.0791L39.827 16.9201"
+              stroke="#F8F8F8"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M26.5 51C40.0314 51 51 40.0314 51 26.5C51 12.9687 40.0314 2 26.5 2C12.9687 2 2 12.9687 2 26.5C2 40.0314 12.9687 51 26.5 51Z"
+              stroke="#F8F8F8"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+            />
+          </svg>
+          <svg
+            style="width: 35px; height: 35px"
+            *ngIf="!item.is_correct && showCorrectAnswer"
+            width="53"
+            height="53"
+            viewBox="0 0 53 53"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M26.5 51C40.0314 51 51 40.0314 51 26.5C51 12.9687 40.0314 2 26.5 2C12.9687 2 2 12.9687 2 26.5C2 40.0314 12.9687 51 26.5 51Z"
+              stroke="#F8F8F8"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+            />
+            <path d="M36 35L18 17L36 35Z" fill="#F4F4F4" />
+            <path
+              d="M36 35L18 17"
+              stroke="#F8F8F8"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+            />
+            <path d="M36 17L18 35L36 17Z" fill="#F4F4F4" />
+            <path
+              d="M36 17L18 35"
+              stroke="#F8F8F8"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="bevel"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

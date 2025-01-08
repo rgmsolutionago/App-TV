@@ -1,0 +1,51 @@
+npm run build
+npx cap sync
+npm install @capacitor/android
+npx cap add android
+npx cap open android
+npx cap run android
+
+
+//https://capacitorjs.com/docs/android
+
+
+
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-feature android:name="android.software.leanback" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.microphone" android:required="false" />
+    <uses-feature android:name="android.hardware.wifi" android:required="false" />
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+    <uses-feature android:name="android.hardware.location.network" android:required="false" />
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-feature android:name="android.hardware.faketouch" android:required
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 858 768" width="858" height="768" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"><defs><clipPath id="__lottie_element_2"><rect width="858" height="768" x="0" y="0"></rect></clipPath></defs><g clip-path="url(#__lottie_element_2)"><g transform="matrix(-0.7157651782035828,-0.6983410716056824,0.6983410716056824,-0.7157651782035828,467.9002685546875,958.442138671875)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M429.21099853515625,630.9450073242188 C429.21099853515625,630.9450073242188 429.21099853515625,690.3159790039062 429.21099853515625,690.3159790039062"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M429.21099853515625,76.73699951171875 C429.21099853515625,76.73699951171875 429.21099853515625,137.75799560546875 429.21099853515625,137.75799560546875"></path></g><g opacity="1" transform="matrix(1,0,0,1,233.26800537109375,579.468017578125)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M20.990999221801758,-20.990999221801758 C20.990999221801758,-20.990999221801758 -20.990999221801758,20.989999771118164 -20.990999221801758,20.989999771118164"></path></g><g opacity="1" transform="matrix(1,0,0,1,624.5689697265625,188.16700744628906)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M21.573999404907227,-21.573999404907227 C21.573999404907227,-21.573999404907227 -21.573999404907227,21.573999404907227 -21.573999404907227,21.573999404907227"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M181.79200744628906,383.5260009765625 C181.79200744628906,383.5260009765625 122.4209976196289,383.5260009765625 122.4209976196289,383.5260009765625"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M736,383.5260009765625 C736,383.5260009765625 674.97900390625,383.5260009765625 674.97900390625,383.5260009765625"></path></g><g opacity="1" transform="matrix(1,0,0,1,233.2689971923828,187.58399963378906)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M20.990999221801758,20.990999221801758 C20.990999221801758,20.990999221801758 -20.989999771118164,-20.990999221801758 -20.989999771118164,-20.990999221801758"></path></g><g opacity="1" transform="matrix(1,0,0,1,624.5689697265625,578.885009765625)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(36,45,73)" stroke-opacity="1" stroke-width="34.031" d=" M21.573999404907227,21.573999404907227 C21.573999404907227,21.573999404907227 -21.573999404907227,-21.573999404907227 -21.573999404907227,-21.573999404907227"></path></g></g><g transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,429.21099853515625,383.9079895019531)"><path stroke-linecap="butt" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="10" stroke="rgb(168,194,59)" stroke-opacity="1" stroke-width="34.031" d=" M146.718994140625,0 C146.718994140625,-81.02999877929688 81.02999877929688,-146.71800231933594 0,-146.71800231933594 C-81.03099822998047,-146.71800231933594 -146.718994140625,-81.02999877929688 -146.718994140625,0 C-146.718994140625,81.02999877929688 -81.03099822998047,146.71800231933594 0,146.71800231933594 C81.02999877929688,146.71800231933594 146.718994140625,81.02999877929688 146.718994140625,0z"></path></g></g></g></svg>

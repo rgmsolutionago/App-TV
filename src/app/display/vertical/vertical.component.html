@@ -1,0 +1,161 @@
+<div style="width: 50px"></div>
+<div #screen id="screen" *ngIf="DISPLAY === 2">
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    *ngIf="appConfigService.fetchedConfigs"
+    [style.padding-top]="appConfigService.paddingScreen.pt + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'"
+  >
+    <div
+      [style.background-color]="appConfigService.theme.backgroundCard"
+      [style.height]="verticalSize.top + unit"
+      class="col-span-3 rounded-2xl"
+      #container
+    >
+      <div>
+        <dynamic-content
+          [DISPLAY]="DISPLAY"
+          [heightContainer]="container.offsetHeight"
+        ></dynamic-content>
+      </div>
+    </div>
+  </div>
+
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    [style.padding-top]="appConfigService.paddingScreen.ip + 'px'"
+    [style.padding-bottom]="appConfigService.paddingScreen.ip + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'"
+    class="w-full"
+    [style.height]="verticalSize.middle"
+  >
+    <dobled-slides
+      [DISPLAY]="DISPLAY"
+      [ngClass]="{
+        '   hidden':
+          !!dashboardService.keyboardEventCall &&
+          dashboardService.keyboardEventCallAsFullScreen
+      }"
+    ></dobled-slides>
+    <callers-item-full
+      *ngIf="
+        !!dashboardService.keyboardEventCall &&
+        dashboardService.keyboardEventCallAsFullScreen
+      "
+    ></callers-item-full>
+  </div>
+
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    *ngIf="appConfigService.fetchedConfigs"
+    [style.padding-bottom]="appConfigService.paddingScreen.pb + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'"
+    [style.height]="verticalSize.bottom"
+  >
+    <div
+      [style.gap]="appConfigService.paddingScreen.ip + 'px'"
+      [class]="'grid   grid-cols-' + dashboardService.callersData.length"
+    >
+      <caller-item
+        [DISPLAY]="DISPLAY"
+        *ngFor="let item of dashboardService.callersData"
+        [item]="item"
+        [padding]="appConfigService.paddingScreen.pt"
+      ></caller-item>
+    </div>
+  </div>
+</div>
+
+<div #screen id="screen" *ngIf="DISPLAY === 3">
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    [style.padding-bottom]="appConfigService.paddingScreen.pb + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'"
+    [style.padding-top]="appConfigService.paddingScreen.pr + 'px'"
+    class="w-full"
+    [style.height]="verticalSize.middle"
+  >
+    <dobled-slides
+      [DISPLAY]="DISPLAY"
+      [ngClass]="{
+        '   hidden':
+          !!dashboardService.keyboardEventCall &&
+          dashboardService.keyboardEventCallAsFullScreen
+      }"
+    ></dobled-slides>
+  </div>
+</div>
+
+<div #screen id="screen" *ngIf="DISPLAY === 4">
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    *ngIf="appConfigService.fetchedConfigs"
+    [style.padding-top]="appConfigService.paddingScreen.pt + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'" 
+    [style.height]="verticalSize.top + unit"
+  >
+    <div
+      [style.gap]="appConfigService.paddingScreen.ip + 'px'"
+      [class]="'grid   grid-cols-' + dashboardService.callersData.length"
+    >
+      <caller-item
+        [DISPLAY]="DISPLAY"
+        *ngFor="let item of dashboardService.callersData"
+        [item]="item"
+        [padding]="appConfigService.paddingScreen.pt"
+      ></caller-item>
+    </div>
+  </div>
+
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    [style.padding-top]="appConfigService.paddingScreen.ip + 'px'"
+    [style.padding-bottom]="appConfigService.paddingScreen.ip + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'"
+    class="w-full"
+    [style.height]="verticalSize.middle"
+  >
+    <dobled-slides
+      [DISPLAY]="DISPLAY"
+      [ngClass]="{
+        '   hidden':
+          !!dashboardService.keyboardEventCall &&
+          dashboardService.keyboardEventCallAsFullScreen
+      }"
+    ></dobled-slides>
+    <callers-item-full
+      *ngIf="
+        !!dashboardService.keyboardEventCall &&
+        dashboardService.keyboardEventCallAsFullScreen
+      "
+    ></callers-item-full>
+  </div>
+
+  <div
+    [style.background-color]="appConfigService.theme.backgroundColor"
+    *ngIf="appConfigService.fetchedConfigs"
+    [style.padding-bottom]="appConfigService.paddingScreen.pb + 'px'"
+    [style.padding-left]="appConfigService.paddingScreen.pl + 'px'"
+    [style.padding-right]="appConfigService.paddingScreen.pr + 'px'"
+  >
+    <div
+      [style.background-color]="appConfigService.theme.backgroundCard"
+      [style.height]="verticalSize.bottom"
+      class="col-span-3 rounded-2xl"
+      #container
+    >
+      <div>
+        <dynamic-content
+          [DISPLAY]="DISPLAY"
+          [heightContainer]="container.offsetHeight"
+        ></dynamic-content>
+      </div>
+    </div>
+  </div>
+</div>

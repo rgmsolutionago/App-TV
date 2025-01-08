@@ -1,0 +1,33 @@
+<div
+  class="rounded-2xl text-center flex flex-col h-full"
+  style="box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.05)"
+  [style.background]="
+    'radial-gradient(50% 50% at 50% 50%, ' +
+    dashboardService.keyboardEventCallCaller?.primary_color +
+    ' 0%, ' +
+    dashboardService.keyboardEventCallCaller?.secondary_color +
+    ' 100%)'
+  "
+>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      /* flex-wrap: nowrap; */
+      align-items: center;
+      font-weight: bold !important;
+      flex-direction: column;
+      height: 100%;
+    "
+  >
+    <h1 class="text-brand-white text-6xl font-inter font-bold">
+      {{ dashboardService.keyboardEventCallCaller?.name }}
+    </h1>
+    <p
+      class="mt-2 text-brand-white  text-9xl font-inter font-bold"
+      style="line-height: 1"
+    >
+      {{ dashboardService.keyboardEventCallCaller?.number }}
+    </p>
+  </div>
+</div>

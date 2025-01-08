@@ -1,0 +1,30 @@
+<ion-menu menuId="dobled-menu" contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>DobleD Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-button style="width: 90%;margin-left: 10px;margin-top: 10px;" fill="outline"  (click)="logout()">Salir</ion-button>
+  </ion-content>
+</ion-menu>
+
+<ion-content
+  id="main-content"
+  [style.background-color]="appConfigService.theme.backgroundColor"
+  [class]="handleRotate?'wrapper':''"
+>
+  <img
+    (click)="openMenu()"
+    class="absolute w-[4%] left-2 top-8"
+    src="./assets/logout.png"
+  />
+  <app-desktop
+    [DISPLAY]="desktopDisplayScreen"
+    *ngIf="(desktopDisplayScreen===5 ||desktopDisplayScreen===6 || desktopDisplayScreen===0 || desktopDisplayScreen===1) && appConfigService.fetchedConfigs"
+  ></app-desktop>
+  <app-vertical
+    [DISPLAY]="desktopDisplayScreen"
+    *ngIf="(desktopDisplayScreen===2 || desktopDisplayScreen===3 || desktopDisplayScreen===4) && appConfigService.fetchedConfigs"
+  ></app-vertical>
+</ion-content>

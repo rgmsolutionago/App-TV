@@ -1,0 +1,98 @@
+<div
+  *ngIf="appConfigService.loadingDynamic"
+  class="flex items-center justify-center w-full h-full"
+>
+  <div class="flex justify-center items-center space-x-1 text-sm text-gray-700">
+    <svg
+      fill="none"
+      class="w-6 h-6 animate-spin"
+      viewBox="0 0 32 32"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+        fill="currentColor"
+        fill-rule="evenodd"
+      />
+    </svg>
+
+    <div>cargando ...</div>
+  </div>
+</div>
+
+<div id="sliderDinamic" *ngIf="!appConfigService.loadingDynamic">
+  <!-- WHEATER -->
+
+  <swiper-container
+    *ngIf="appConfigService.showWheater"
+    #swiper
+    (swiperinit)="swiperReady($event)"     
+    [style.height]="heightContainer + 'px'"
+    class="animation-fade"
+    [pagination]="pagination"
+  >
+    <swiper-slide
+      *ngFor="let item of dashboardService.wheaterDataList; let i = index"
+    >
+      <div style="width: 100%" class="px-4">
+        <weather-item
+          [index]="i"
+          [item]="item"
+          [DISPLAY]="DISPLAY"
+        ></weather-item>
+        <div class="progress" [style.background]="appConfigService.theme.sliderColorDisabled"  >
+          <div [style.width]="remain+'%'" [style.background]="appConfigService.theme.sliderColorActive" class="inner"></div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- EXCHANGE -->
+  <div
+    *ngIf="appConfigService.showExchange"
+    style="width: 100%"
+    class="px-4 animation-fade"
+  >
+    <rates-item [DISPLAY]="DISPLAY"></rates-item>
+  </div>
+
+  <!-- NEWS -->
+
+  <swiper-container
+    *ngIf="appConfigService.showNews"
+    #swiper
+    (swiperinit)="swiperReady($event)"
+    [style.height]="heightContainer + 'px'"
+    class="animation-fade"
+    [pagination]="pagination"
+  >
+    <swiper-slide *ngFor="let item of dashboardService.newsData">
+      <div style="width: 100%" class="px-4">
+        <div style="width: 100%" class="px-4">
+          <news-item [DISPLAY]="DISPLAY" [item]="item"></news-item>
+        </div>
+        <div class="progress" [style.background-color]="appConfigService.theme.sliderColorDisabled"  >
+          <div [style.width]="remain+'%'" [style.background-color]="appConfigService.theme.sliderColorActive" class="inner"></div>
+        </div>
+      </div>
+    </swiper-slide>
+  </swiper-container>
+
+  <!-- SPORT -->
+  <ng-container
+    *ngIf="
+      appConfigService.showSport &&
+      appConfigService.configsData?.football &&
+      dashboardService.sportData &&
+      dashboardService.sportData.minute !== ''
+    "
+  >
+    <div style="width: 100%" class="px-4 animation-fade">
+      <sport-item
+        [DISPLAY]="DISPLAY"
+        [item]="dashboardService.sportData"
+      ></sport-item>
+    </div>
+  </ng-container>
+</div>

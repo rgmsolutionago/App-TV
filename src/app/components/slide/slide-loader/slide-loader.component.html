@@ -1,0 +1,95 @@
+<!--
+<div class="flex items-center justify-center w-full h-full">
+  <div class="flex flex-col justify-center items-center text-sm text-gray-700">
+    <div class="flex items-center justify-center flex-row">
+      <svg
+        fill="none"
+        class="w-6 h-6 animate-spin"
+        viewBox="0 0 32 32"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+
+      <div
+        *ngIf="
+          dashboardService.countDownloaded === dashboardService.countDownloading
+        "
+      >
+        Loading ...
+      </div>
+    </div>
+    <div class="flex justify-center items-center flex-col">
+      <div
+        *ngIf="
+          dashboardService.countDownloaded !== dashboardService.countDownloading
+        "
+      >
+        Downloading contents {{ dashboardService.countDownloaded }}/{{
+          dashboardService.countDownloading
+        }}
+        ...
+      </div>
+
+      <div
+        *ngIf="
+          slideStaticManagerService.progressCurrentFile > 0 &&
+          dashboardService.countDownloaded !== dashboardService.countDownloading
+        "
+      >
+        Downloaded:
+        {{ slideStaticManagerService.progressCurrentFile | byteFormat }} ...
+      </div>
+    </div>
+
+    <div class="flex justify-center items-center flex-col">
+      <div *ngIf="modulesIndex().length > 0">
+        Inicializando contenidos para
+        {{ modulesIndex().join(", ") }} ...
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<div
+  class="absolute w-[80px] h-[80px] bg-white rounded-lg right-0 flex items-center justify-center shadow-lg	" style="right: 40px;top: 40px;"
+>
+<svg class="animate-spin" width="54" height="54" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M33.9922 17.1044C33.9922 26.4308 26.4317 33.9914 17.1053 33.9914C7.77891 33.9914 0.218384 26.4308 0.218384 17.1044C0.218384 7.77806 7.77891 0.217529 17.1053 0.217529C26.4317 0.217529 33.9922 7.77806 33.9922 17.1044ZM5.26802 17.1044C5.26802 23.642 10.5678 28.9417 17.1053 28.9417C23.6429 28.9417 28.9426 23.642 28.9426 17.1044C28.9426 10.5669 23.6429 5.26717 17.1053 5.26717C10.5678 5.26717 5.26802 10.5669 5.26802 17.1044Z"
+    fill="url(#paint0_angular_140_1612)" />
+  <circle cx="17.2742" cy="31.4583" r="2.53304" fill="#FF4D00" />
+  <defs>
+    <radialGradient id="paint0_angular_140_1612" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse"
+      gradientTransform="translate(17.1053 17.1044) rotate(90) scale(16.8869)">
+      <stop stop-color="#FF4D00" />
+      <stop offset="0.175675" stop-color="#FF4D00" />
+      <stop offset="1" stop-color="white" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+</svg>
+  
+</div>
+<img 
+[style.height]="heightContainer + 'px !important'"
+[width]="widthContainer"
+[height]="heightContainer"
+src="./assets/loader/logo_dobled_1920x1080_1.gif" >
+<!--
+<video
+  [width]="widthContainer"
+  [height]="heightContainer"
+  [style.height]="heightContainer + 'px !important'"
+  #video
+  [poster]="'./assets/loading.gif'"
+  [id]="'video'"
+  
+>
+  <source [type]="'video/webm'" />
+</video>
+-->

@@ -1,0 +1,104 @@
+.background-container {
+    background-color: rgba(255, 0, 0, 0.295)(235, 213, 213);
+    position: relative;
+    background-size: cover;
+    filter: blur(4px);
+    display: flex;
+    position: absolute;
+
+
+}
+
+.background-inner {
+
+    position: relative;
+
+
+    display: flex;
+
+
+    .left {
+        
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+       
+    }
+
+    .center {
+        width: 40%;
+        height: 100%;
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+        
+    }
+
+    .right {
+       
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .content {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 5px;
+            align-items: center;
+            background: #FFF;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 5px;
+            padding: 4px;
+            height: 20px;
+        }
+
+        h1 {
+            font-size: 18px;
+            color: #131212;
+            font-weight: bold;
+        }
+        svg{
+            width: 18px;
+        }
+    }
+}
+
+
+.rotate {
+
+    transform: rotate(-90deg);
+
+
+    /* Legacy vendor prefixes that you probably don't need... */
+
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+
+    /* IE */
+    -ms-transform: rotate(-90deg);
+
+    /* Opera */
+    -o-transform: rotate(-90deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+}
+
+video {
+    border-radius: 1rem;
+    object-fit: fill;
+
+}

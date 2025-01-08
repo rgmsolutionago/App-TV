@@ -1,0 +1,12 @@
+
+ <video
+  [width]="widthContainer"
+  [height]="heightContainer"
+  [style.height]="heightContainer+'px !important'"
+  #video
+  [poster]="item.poster"
+  [id]="'video'"
+  
+>
+  <source [type]="item.mime" />
+</video>

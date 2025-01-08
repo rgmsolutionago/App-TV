@@ -1,0 +1,58 @@
+.rectangleTime {
+    position: relative;
+
+
+}
+
+
+.container-question-ok {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1ec534;
+    min-height: 45px;
+    border-radius: 10px;
+    border: 1px solid white;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 15px;
+    font-size: 20px;
+}
+
+
+
+
+.question-container {
+    padding: 2px 20px;
+    background-color: #5bb238;
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+
+    display: flex;
+    align-items: center;
+    min-height: 109px;
+    font-weight: bold;
+    align-items: center;
+
+    h1 {
+        margin-top: 0px;
+    }
+
+    .question-container-date {
+        background-color: #69bb81;
+        border-radius: 10px;
+        padding: 2px 4px;
+    }
+}
+
+.container-trivia {
+
+    border-radius: 12px;
+}
+
+video {
+    border-radius: 1rem;
+    object-fit: fill;
+
+}
+ 

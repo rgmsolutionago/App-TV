@@ -1,0 +1,33 @@
+<div
+  class="rounded-2xl relative flex justify-center h-full"
+  style="box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.05)"
+  [style.background]="'#000'"
+  [style.border]="'1px solid rgba(0, 0, 0, 0.05)'"
+>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold !important;
+      width: 80%;
+    "
+  >
+    <div class="absolute rounded-2xl w-[50%] h-[100%] left-0 border-solid bg-blue-800"></div>
+    <div class="absolute rounded-2xl w-[50%] h-[100%] right-0 border-solid bg-red-800"></div>
+    <div
+      class=" flex flex-col center justify-center items-center text-center bg-yellow-400 z-10 w-full h-full"
+    >
+      <p
+        style="font-size: 80px"
+        class="font-inter font-bold"
+        [style.color]="'#000'"
+      >
+        {{time}}<sup>´</sup>
+      </p>
+      <h1 class="text-2xl font-inter font-bold" [style.color]="'#000'">
+        Restantes
+      </h1>
+    </div>
+  </div>
+</div>

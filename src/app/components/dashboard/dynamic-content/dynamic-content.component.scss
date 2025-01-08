@@ -1,0 +1,16 @@
+.progress{
+    position: absolute;
+    height: 8px;
+    width: 50px;
+    border-radius: 4px;
+    background-color: red;
+    top: 10px;
+    right: 30px;
+
+    .inner{
+        height: 100%;
+        background-color: blue;
+        width: 0%;
+        border-radius: 4px;
+    }
+}

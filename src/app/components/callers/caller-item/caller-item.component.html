@@ -1,0 +1,51 @@
+<div
+  class="rounded-2xl"
+  style="box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.05)"
+  [style.background]="
+    dashboardService.currentCallerName === item.name
+      ? '#FFF'
+      : 'radial-gradient(50% 50% at 50% 50%, ' +
+        item.primary_color +
+        ' 0%, ' +
+        item.secondary_color +
+        ' 100%)'
+  "
+  [style.border]="
+    dashboardService.currentCallerName === item.name
+      ? '2px solid ' + item.primary_color
+      : '0px'
+  "
+>
+  <div
+    style="
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold !important;
+    "
+    [style.height]="height"
+  >
+    <h1
+      class="text-2xl font-inter font-bold"
+      [style.color]="
+        dashboardService.currentCallerName === item.name
+          ? item.primary_color
+          : '#FFF'
+      "
+    >
+      {{ item.name }}
+    </h1>
+    <p
+      class="mt-2 text-7xl font-inter font-bold"
+      style="line-height: 1"
+      [style.color]="
+        dashboardService.currentCallerName === item.name
+          ? item.primary_color
+          : '#FFF'
+      "
+    >
+      {{ item.number }}
+    </p>
+  </div>
+</div>

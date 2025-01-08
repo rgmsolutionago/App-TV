@@ -1,0 +1,32 @@
+.time-load {
+    background: #ccc;
+    width: 40px;
+    height: 4px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.time-load .blue-line {
+    background: #A0c51E;
+    border-radius: 10px;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    width: 20px;
+    height: 4px;
+    animation: line-bounce 1s infinite;
+}
+
+@keyframes line-bounce {
+    0% {
+        left: 20px;
+    }
+
+    50% {
+        left: 0;
+    }
+
+    100% {
+        left: 20px;
+    }
+}

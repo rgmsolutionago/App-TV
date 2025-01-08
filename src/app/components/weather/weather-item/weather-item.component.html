@@ -1,0 +1,346 @@
+<div
+  *ngIf="DISPLAY === 1 || DISPLAY === 0 || DISPLAY === 5|| DISPLAY === 6"
+  class="w-full h-full px-4 py-4"
+>
+  <!-- logo -->
+  <dobled-logo *ngIf="DISPLAY !== 5 && DISPLAY !== 6 "></dobled-logo>
+  <!-- heading -->
+
+  <h1
+    class="xs:mt-2 sm:mt-4 md:mt-4 lg:mt-4 xl:mt-4 2xl:mt-44xl:mt-4 font-inter xs:text-1xl sm:text-1xl md:text-1xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl text-left"
+  >
+    <span
+      [style.color]="appConfigService.theme.primaryColor"
+      *ngIf="index === 0"
+      >Hoy</span
+    >
+    <span
+      [style.color]="appConfigService.theme.primaryColor"
+      *ngIf="index === 1"
+      >Mañana</span
+    >
+    <span
+      [style.color]="appConfigService.theme.primaryColor"
+      *ngIf="index === 2"
+      >{{ item?.date | date : "EEEE" : "es" | titlecase }}</span
+    >
+    <p [style.color]="appConfigService.theme.primaryColor" class="font-bold">
+      {{ item?.state }}
+    </p>
+  </h1>
+
+  <!-- day-time -->
+
+  <!-- weather -->
+
+  <div class="flex justify-between items-center mt-2 relative">
+    <div style="width: 70%">
+      <p
+        [style.color]="appConfigService.theme.primaryColor"
+        class="mt-4 xs:text-1xl sm:text-6xl md:text-6xl lg:text-6xl xl:text-5xl 2xl:text-6xl 4xl:text-6xl font-inter font-bold text-left"
+      >
+        {{ item?.temp_c }}°
+      </p>
+      <p
+        [style.color]="appConfigService.theme.secondaryColor"
+        class="xs:text-1xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-normal font-inter text-left"
+      >
+        {{ item?.description }}
+      </p>
+    </div>
+    <div style="position: absolute; right: 5%">
+      <wheater-icon-selector
+        [primaryColor]="appConfigService.theme.primaryColor ?? 'red'"
+        [thirdColor]="appConfigService.theme.thirdColor ?? 'red'"
+        [code]="code"
+      ></wheater-icon-selector>
+    </div>
+  </div>
+
+  <div class="flex gap-6 mt-2">
+    <div class="flex items-center gap-2">
+      <svg
+        class="xs:h-4 xs:w-4 sm:h-4 sm:w-4 md:h-4 md:w-4 lg:h-6 lg:w-6 xl:h-8 xl:w-8 2xl:h-8 2xl:w-8"
+        width="24"
+        height="26"
+        viewBox="0 0 24 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.0607 0.939341C12.4749 0.353554 11.5251 0.353554 10.9393 0.939341L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97918 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.939341ZM13.5 26L13.5 2L10.5 2L10.5 26L13.5 26Z"
+          [attr.fill]="appConfigService.theme.primaryColor"
+        />
+      </svg>
+
+      <p
+        [style.color]="appConfigService.theme.primaryColor"
+        class="xs:text-1xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-inter font-bold"
+      >
+        {{ item?.max_temperature }}°
+      </p>
+    </div>
+    <div class="flex items-center gap-2">
+      <svg
+        class="xs:h-4 xs:w-4 sm:h-4 sm:w-4 md:h-4 md:w-4 lg:h-6 lg:w-6 xl:h-8 xl:w-8 2xl:h-8 2xl:w-8"
+        width="24"
+        height="26"
+        viewBox="0 0 24 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M13.0607 25.0607C12.4749 25.6464 11.5251 25.6464 10.9393 25.0607L1.3934 15.5147C0.807611 14.9289 0.807611 13.9792 1.3934 13.3934C1.97918 12.8076 2.92893 12.8076 3.51472 13.3934L12 21.8787L20.4853 13.3934C21.0711 12.8076 22.0208 12.8076 22.6066 13.3934C23.1924 13.9792 23.1924 14.9289 22.6066 15.5147L13.0607 25.0607ZM13.5 6.55671e-08L13.5 24L10.5 24L10.5 -6.55671e-08L13.5 6.55671e-08Z"
+          [attr.fill]="appConfigService.theme.primaryColor"
+        />
+      </svg>
+
+      <p
+        [style.color]="appConfigService.theme.primaryColor"
+        class="xs:text-1xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-inter font-bold"
+      >
+        {{ item?.min_temperature }}°
+      </p>
+    </div>
+  </div>
+
+  <!-- uv -->
+  <ng-container *ngIf="item.isToday">
+    <div
+      *ngIf="
+        item?.alert?.level !== 2 &&
+        item?.alert?.level !== 3 &&
+        item?.alert?.level !== 4 &&
+        item?.uv >= 3
+      "
+      class="mt-2"
+    >
+      <div
+        [style.width]="'fit-content'"
+        [style.height]="'40px'"
+        [class]="
+          getUVBackground() +
+          '  flex items-center gap-2 py-2 px-4 rounded-3xl  text-brand-white  uppercase font-inter font-medium'
+        "
+      >
+        <div style="width: 30px; position: absolute">
+          <img src="./assets/Vector2.svg" />
+        </div>
+        <div style="font-size: 0.6rem; margin-left: 40px">
+          {{ getUVText() }}
+        </div>
+      </div>
+    </div>
+
+    <!-- huricane -->
+    <div
+      class="mt-2"
+      *ngIf="item?.alert?.level >= 2 && item?.alert?.level <= 4"
+    >
+      <div
+        [style.width]="'fit-content'"
+        [style.height]="'40px'"
+        [class]="
+          getHuricateBackground() +
+          '  flex items-center gap-2 py-2 px-4 rounded-3xl text-brand-white   uppercase font-inter font-medium'
+        "
+      >
+        <div style="width: 30px; position: absolute">
+          <img
+            *ngIf="item?.alert.type === 'rain'"
+            src="./assets/rain_icon.png"
+          />
+          <img
+            *ngIf="item?.alert?.type === 'storm'"
+            src="./assets/storm_icon.png"
+          />
+          <img
+            *ngIf="item?.alert?.type === 'wind'"
+            src="./assets/wind_icon.png"
+          />
+        </div>
+        <ion-text style="font-size: 0.6rem; margin-left: 40px">
+          {{ item?.alert.info }}
+        </ion-text>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<div
+  *ngIf="DISPLAY === 2 || DISPLAY === 3 || DISPLAY === 4"
+  class="w-full h-full px-4 py-4"
+>
+  <!-- logo -->
+  <div style="position: absolute; left: 30px; margin-bottom: 10px">
+    <dobled-logo></dobled-logo>
+  </div>
+  <!-- heading -->
+
+  <div class="flex justify-between mt-4">
+    <div>
+      <h1
+        class="xs:mt-2 sm:mt-4 md:mt-4 lg:mt-4 xl:mt-4 2xl:mt-44xl:mt-4 font-inter xs:text-1xl sm:text-1xl md:text-1xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl text-left"
+      >
+        <span
+          *ngIf="index === 0"
+          [style.color]="appConfigService.theme.primaryColor"
+          >Hoy</span
+        >
+        <span
+          *ngIf="index === 1"
+          [style.color]="appConfigService.theme.primaryColor"
+          >Mañana</span
+        >
+        <span
+          [style.color]="appConfigService.theme.primaryColor"
+          *ngIf="index === 2"
+          >{{ item?.date | date : "EEEE" : "es" | titlecase }}</span
+        >
+
+        <p
+          class="font-bold text-2xl"
+          [style.color]="appConfigService.theme.primaryColor"
+        >
+          {{ item?.state }}
+        </p>
+      </h1>
+
+      <ng-container *ngIf="item.isToday">
+        <div
+          *ngIf="
+            item?.alert?.level !== 2 &&
+            item?.alert?.level !== 3 &&
+            item?.alert?.level !== 4 &&
+            item?.uv >= 3
+          "
+          class="mt-1"
+        >
+          <div
+            [style.width]="'fit-content'"
+            [style.height]="'40px'"
+            [class]="
+              getUVBackground() +
+              '  flex items-center gap-2 py-2 px-4 rounded-3xl  text-brand-white  uppercase font-inter font-medium'
+            "
+          >
+            <div style="width: 30px; position: absolute">
+              <img src="./assets/Vector2.svg" />
+            </div>
+            <div style="font-size: 0.6rem; margin-left: 40px">
+              {{ getUVText() }}
+            </div>
+          </div>
+        </div>
+
+        <!-- huricane -->
+        <div
+          class="mt-2"
+          *ngIf="item?.alert?.level >= 2 && item?.alert?.level <= 4"
+        >
+          <div
+            [style.width]="'fit-content'"
+            [style.height]="'40px'"
+            [class]="
+              getHuricateBackground() +
+              '  flex items-center gap-2 py-2 px-4 rounded-3xl text-brand-white   uppercase font-inter font-medium'
+            "
+          >
+            <div style="width: 30px; position: absolute">
+              <img
+                *ngIf="item?.alert.type === 'rain'"
+                src="./assets/rain_icon.png"
+              />
+              <img
+                *ngIf="item?.alert.type === 'storm'"
+                src="./assets/storm_icon.png"
+              />
+              <img
+                *ngIf="item?.alert.type === 'wind'"
+                src="./assets/wind_icon.png"
+              />
+            </div>
+            <ion-text style="font-size: 0.6rem; margin-left: 40px">
+              {{ item?.alert.info }}
+            </ion-text>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div class="flex center mt-6">
+      <div class="mr-1">
+        <wheater-icon-selector
+          [primaryColor]="appConfigService.theme.primaryColor ?? 'red'"
+          [thirdColor]="appConfigService.theme.thirdColor ?? 'red'"
+          [code]="code"
+          [width]="'80px'"
+        ></wheater-icon-selector>
+      </div>
+      <div>
+        <div class="flex justify-between items-center -mt-6 2xl:mt-8 relative">
+          <div>
+            <p
+              class="text-5xl font-inter font-bold text-left"
+              [style.color]="appConfigService.theme.primaryColor"
+            >
+              {{ item?.temp_c }}°
+            </p>
+            <p
+              class="xs:text-1xl sm:text-2xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 4xl:text-5xl font-normal font-inter text-left"
+              [style.color]="appConfigService.theme.secondaryColor"
+            >
+              {{ item?.description }}
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-2 mt-2">
+          <div class="flex items-center gap-1">
+            <svg
+              class="xs:h-4 xs:w-4 sm:h-4 sm:w-4 md:h-4 md:w-4 lg:h-6 lg:w-6 xl:h-8 xl:w-8 2xl:h-8 2xl:w-8"
+              width="24"
+              height="26"
+              viewBox="0 0 24 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.0607 0.939341C12.4749 0.353554 11.5251 0.353554 10.9393 0.939341L1.3934 10.4853C0.807611 11.0711 0.807611 12.0208 1.3934 12.6066C1.97918 13.1924 2.92893 13.1924 3.51472 12.6066L12 4.12132L20.4853 12.6066C21.0711 13.1924 22.0208 13.1924 22.6066 12.6066C23.1924 12.0208 23.1924 11.0711 22.6066 10.4853L13.0607 0.939341ZM13.5 26L13.5 2L10.5 2L10.5 26L13.5 26Z"
+                [attr.fill]="appConfigService.theme.primaryColor"
+              />
+            </svg>
+
+            <p
+              class="xs:text-1xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-inter font-bold"
+              [style.color]="appConfigService.theme.primaryColor"
+            >
+              {{ item?.max_temperature }}°
+            </p>
+          </div>
+          <div class="flex items-center gap-1">
+            <svg
+              class="xs:h-4 xs:w-4 sm:h-4 sm:w-4 md:h-4 md:w-4 lg:h-6 lg:w-6 xl:h-8 xl:w-8 2xl:h-8 2xl:w-8"
+              width="24"
+              height="26"
+              viewBox="0 0 24 26"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M13.0607 25.0607C12.4749 25.6464 11.5251 25.6464 10.9393 25.0607L1.3934 15.5147C0.807611 14.9289 0.807611 13.9792 1.3934 13.3934C1.97918 12.8076 2.92893 12.8076 3.51472 13.3934L12 21.8787L20.4853 13.3934C21.0711 12.8076 22.0208 12.8076 22.6066 13.3934C23.1924 13.9792 23.1924 14.9289 22.6066 15.5147L13.0607 25.0607ZM13.5 6.55671e-08L13.5 24L10.5 24L10.5 -6.55671e-08L13.5 6.55671e-08Z"
+                [attr.fill]="appConfigService.theme.primaryColor"
+              />
+            </svg>
+
+            <p
+              class="xs:text-1xl sm:text-2xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl 4xl:text-6xl font-inter font-bold"
+              [style.color]="appConfigService.theme.primaryColor"
+            >
+              {{ item?.min_temperature }}°
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

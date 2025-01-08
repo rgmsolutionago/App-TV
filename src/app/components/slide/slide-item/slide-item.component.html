@@ -1,0 +1,58 @@
+
+ 
+<video-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'VIDEO'"
+></video-preview>
+
+<image-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'IMAGE'"
+></image-preview>
+
+<trivia-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'TRIVIA'"
+></trivia-preview>
+
+<likeToDay-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'LIKETODAY'"
+></likeToDay-preview>
+
+<didYouKnow-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'DIDYOUNOW'"
+></didYouKnow-preview>
+
+<movie-preview  [DISPLAY]="DISPLAY"
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'MOVIE'"
+></movie-preview>
+
+<shows-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'SHOWS'"
+></shows-preview>
+
+
+<review-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'REVIEWS'"
+></review-preview>
+
+<instagram-preview
+  [widthContainer]="widthContainer"
+  [heightContainer]="heightContainer"
+  *ngIf="dashboardService.typeSlideToShow === 'INSTAGRAM'"
+></instagram-preview>
+
+
