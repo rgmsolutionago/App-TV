@@ -12,7 +12,7 @@ export class CallersItemFullComponent implements OnInit {
   ngOnInit() {
     // console.log("sonido", this.dashboardService.keyboardEventCallCaller?.number);
     // console.log("----", this.dashboardService.keyboardEventCallCaller)
-    this.synthesizeText(`${this.dashboardService.keyboardEventCallCaller.name} numero ${this.dashboardService.keyboardEventCallCaller.number}` , "es-AR");
+    this.synthesizeText(`${this.dashboardService.keyboardEventCallCaller.name} número ${this.dashboardService.keyboardEventCallCaller.number}` , "es-AR");
   }
 
   synthesizeText(text: string, lang: string) {
